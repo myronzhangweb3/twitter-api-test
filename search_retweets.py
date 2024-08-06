@@ -22,10 +22,6 @@ headers = {
 }
 
 
-def format_time(timestamp):
-    return datetime.fromtimestamp(timestamp).strftime("%Y-%m-%d %H:%M:%S")
-
-
 def fetch_tweets(_query, continuation_token=None):
     params = {
         'query': _query,
@@ -51,7 +47,7 @@ def process_tweets(tweets):
     for tweet in tweets:
         if tweet.get('quoted_status_id') == TWITTER_SEARCH_RETWEETS_ID:
             tweet_id = tweet.get("tweet_id")
-            timestamp = tweet.get('timestamp')
+            timestamp = datetime.fromtimestamp(tweet.get('timestamp')).strftime("%Y-%m-%d %H:%M:%S")
             user_id = tweet['user']['user_id']
             username = tweet['user']['username']
             result[tweet_id] = {
@@ -61,7 +57,7 @@ def process_tweets(tweets):
                 'tweet_id': tweet_id
             }
             last_tweet_id = tweet_id
-            print(f"Processed tweet from {username} (ID: {user_id}) at {format_time(timestamp)}")
+            print(f"Processed tweet from {username} (ID: {user_id}) at {timestamp}")
 
     return result, last_tweet_id
 

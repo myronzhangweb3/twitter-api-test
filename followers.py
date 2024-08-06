@@ -2,6 +2,7 @@ import time
 import requests
 import os
 from dotenv import load_dotenv
+from datetime import datetime
 
 load_dotenv()
 
@@ -69,9 +70,14 @@ def main():
             for follower in followers_data:
                 uid = follower['user_id']
                 username = follower['username']
+                timestamp = datetime.fromtimestamp(follower['timestamp']).strftime("%Y-%m-%d %H:%M:%S")
                 if uid not in followers:
-                    followers[uid] = username
-                    print(f"new follower: {username}")
+                    followers[uid] = {
+                        'user_id': uid,
+                        'username': username,
+                        'timestamp': timestamp,
+                    }
+                    print(f"new follower: {username}. Time: {timestamp}")
 
             if stop:
                 print("finished")
