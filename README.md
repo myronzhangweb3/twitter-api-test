@@ -20,6 +20,8 @@ pip install -r requirements.txt
 
 ### Run the code
 
+The results are output to the output folder
+
 #### Get followers
     
 ```shell
