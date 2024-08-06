@@ -1,5 +1,7 @@
 # Twitter API Test
 
+Get a list of twitter followers, and filter users who retweeted a given tweet based on a keyword. Export all data to the output folder
+
 ## Usage
 
 ### Get API KEY
