@@ -28,10 +28,12 @@ The results are output to the output folder
     
 ```shell
 python3 followers.py
+# Example of document content：1454078874644467718, {'user_id': '1454078874644467718', 'username': 'myronzhangweb3', 'timestamp': '2021-10-29 21:33:30'}
 ```
 
 #### Search retweets
     
 ```shell
 python3 search_retweets.py
+# Example of document content：1820645081654956121: {'user_id': '1454078874644467718', 'username': 'myronzhangweb3', 'timestamp': '2024-08-06 10:16:28', 'tweet_id': '1820645081654956121'}
 ```
